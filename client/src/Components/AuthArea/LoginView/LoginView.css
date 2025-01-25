@@ -1,0 +1,98 @@
+.LoginView {
+    width: 80%;
+    min-height: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: unset;
+    backdrop-filter: blur(30px);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.LoginView h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.LoginView form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: start;
+}
+
+.LoginView form {
+    margin-left: 5px;
+}
+
+.LoginView p {
+    margin: 3px;
+}
+
+.LoginView .submitBtn {
+    height: 40px;
+}
+
+.LoginView button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.LoginView .inputError {
+    color: #ff0000;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+.LoginView .message {
+    background-color: rgba(255, 0, 0, 0.5);
+    text-align: center;
+    transition: 0.5 ease;
+    animation: fadeIn 0.5 ease;
+}
+
+.LoginView .link-button {
+    position: sticky;
+    right: 0;
+    top: 0;
+    background: none;
+    border: none;
+    padding: 0;
+    color: #101010;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.LoginView .link-button:hover {
+    color: #51ca36;
+}
+
+.LoginView .register-link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

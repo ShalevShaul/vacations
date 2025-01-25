@@ -1,0 +1,82 @@
+.Layout {
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-columns: 1fr;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.topHeader {
+    grid-row: 1;
+    background-color: #f0f0f0;
+    text-align: center;
+    z-index: 3;
+    height: 250px;
+}
+
+aside {
+    position: absolute;
+    top: 2%;
+    grid-row: 2;
+    text-align: center;
+    z-index: 10;
+    width: 100%;
+}
+
+main {
+    grid-row: 3;
+    position: static;
+    z-index: 1;
+    background-image: url(../../../assets/images/wallpaperflare.com_wallpaper.jpg);
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+footer {
+    position: sticky;
+    z-index: 3;
+    bottom: 0;
+    grid-row: 4;
+    background: unset;
+    backdrop-filter: blur(20px);
+    padding: 10px;
+    text-align: center;
+}
+
+main>div {
+    position: relative;
+    animation: scaleIn 0.5s ease;
+}
+
+main>.Home {
+    animation: unset;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    aside {
+        position: unset;
+    }
+
+    main {
+        background-image: url(../../../assets/images/wallpaperflare.com_wallpaper.jpg);
+        background-size: auto 100vh;
+        background-position: 75%;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+}

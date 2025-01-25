@@ -1,0 +1,365 @@
+/* Global */
+.Home {
+    margin-bottom: 5%;
+}
+
+/* Home image page */
+.Home .homeImage {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.Home .homeImage::before,
+.Home .homeImage::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.Home .homeImage::before {
+    z-index: 1;
+    animation: firstSlide 40s infinite;
+}
+
+.Home .homeImage::after {
+    z-index: 1;
+    opacity: 0;
+    animation: secondSlide 40s infinite;
+}
+
+.Home .homeImage .background-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+.Home .homeImage > *:not(.background-overlay) {
+    position: relative;
+    z-index: 3;
+}
+
+.Home .homeImage .arrow-down {
+    position: absolute;
+    bottom: 20px;
+    left: 48%;
+    color: white;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
+    width: 48px;
+    height: 48px;
+    font-size: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIcon 2s infinite;
+    cursor: default;
+}
+
+.Home .homeImage .letsFind {
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, -50%);
+    font-size: 55px;
+    font-family: Chewy;
+    font-weight: 500;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
+    color: white;
+    cursor: default;
+}
+
+.Home .homeImage .title {
+    color: rgb(255, 255, 255);
+    position: absolute;
+    left: 50%;
+    top: 65%;
+    transform: translate(-50%, -50%);
+    font-size: 35px;
+    font-family: chewy;
+    font-weight: 500;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
+    cursor: default;
+}
+
+.Home .homeImage .letsStart {
+    position: absolute;
+    left: 49.5%;
+    top: 80%;
+    transform: translate(-50%, -50%);
+    padding: 15px 35px;
+    font-size: 25px;
+    border-radius: 50px;
+    border: unset;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    transition: 0.2s ease;
+    opacity: 0.8;
+}
+
+.Home .homeImage .letsStart:hover {
+    opacity: 1;
+}
+
+/* Sorted buttons */
+.Home .sortedButtons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    padding: 15px;
+}
+
+.Home .sortedButtons button {
+    padding: 8px 16px;
+    background-color: #666;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+}
+
+.Home .sortedButtons button:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+.Home .sortedButtons button:active {
+    transform: scale(0.95);
+}
+
+/* Vacations Grid */
+.Home .vacations {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 99%;
+    scroll-behavior: smooth;
+}
+
+.Home .vacations > div {
+    animation: appear ease;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+/* Pagination */
+.Home .pagination {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    width: fit-content;
+    min-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 20px auto;
+}
+
+.Home .pagination button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    min-width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.Home .pagination-number {
+    color: #3d3d3d;
+    font-weight: 600;
+}
+
+.Home .pagination-number:hover {
+    background-color: #f0f0f0;
+}
+
+.Home .pagination-number.active {
+    background-color: #94712f;
+    color: white;
+}
+
+.Home .pagination-arrow {
+    color: #666;
+}
+
+.Home .pagination-arrow:disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.Home .pagination-arrow:hover:not(:disabled) {
+    background-color: #f0f0f0;
+}
+
+/* Errors */
+.Home .errorVacations,
+.Home .noVacations {
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    width: 30%;
+    margin: auto;
+    backdrop-filter: blur(10px);
+    padding: 20px 30px;
+    font-weight: bold;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+}
+
+.Home .errorVacations img,
+.Home .noVacations img {
+    margin: 15px;
+}
+
+.Home .errorVacations span,
+.Home .noVacations span {
+    font-size: 20px;
+}
+
+.Home .errorVacations img {
+    width: 50%;
+}
+
+.Home .noVacations img {
+    width: 80%;
+}
+
+/* Animations */
+@keyframes firstSlide {
+    0%, 15% { background-image: url(../../../../assets/images/first4K.jpg); }
+    20%, 35% { background-image: url(../../../../assets/images/third4K.jpeg); }
+    40%, 55% { background-image: url(../../../../assets/images/second4K.jpg); }
+    60%, 75% { background-image: url(../../../../assets/images/fourth4K.jpg); }
+    80%, 95% { background-image: url(../../../../assets/images/FIVE.jpg); }
+    100% { background-image: url(../../../../assets/images/first4K.jpg); }
+}
+
+@keyframes secondSlide {
+    0%, 15% { opacity: 0; background-image: url(../../../../assets/images/third4K.jpeg); }
+    20%, 35%, 40%, 55%, 60%, 75%, 80%, 95% { opacity: 1; }
+    20%, 35% { background-image: url(../../../../assets/images/second4K.jpg); }
+    40%, 55% { background-image: url(../../../../assets/images/fourth4K.jpg); }
+    60%, 75% { background-image: url(../../../../assets/images/FIVE.jpg); }
+    80%, 95% { background-image: url(../../../../assets/images/first4K.jpg); }
+    100% { opacity: 0; background-image: url(../../../../assets/images/third4K.jpeg); }
+}
+
+@keyframes fadeIcon {
+    0% {
+        opacity: 0;
+        scale: 1;
+        transform: translateY(-50%);
+    }
+
+    20%, 70% {
+        opacity: 1;
+        scale: 1.1;
+    }
+
+    100% {
+        opacity: 0;
+        scale: 1;
+        transform: translateY(0%);
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        scale: 0.8;
+        transform: translateX(-20%);
+    }
+
+    to {
+        opacity: 1;
+        scale: 1;
+        transform: translateX(0%);
+    }
+}
+
+
+/* Media queries */
+@media only screen and (max-width: 1100px) {
+    .Home .vacations {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .Home .homeImage .letsFind {
+        top: 40%;
+    }
+
+    .Home .homeImage .title {
+        font-size: 25px;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .Home .homeImage .letsFind {
+        top: 35%;
+        font-size: 38px;
+    }
+    
+    .Home .homeImage .arrow-down {
+        font-size: 30px;
+        left: 45%;
+    }
+
+    .Home .homeImage .letsStart {
+        padding: 15px;
+        font-size: 20px;
+    }
+
+    .Home .sortedButtons {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .Home .sortedButtons button {
+        font-size: 12px;
+    }
+
+    .Home .vacations {
+        grid-template-columns: 1fr;
+    }
+
+    .Home .homeImage .title {
+        font-size: 20px;
+    }
+
+    .Home .homeImage::before,
+    .Home .homeImage::after {
+        background-size: auto 100vh;
+        background-position: 60%;
+    }
+
+    .Home .noVacations span {
+        font-size: 11px;
+    }
+}
+
+/* Fonts */
+@font-face {
+    font-family: Chewy;
+    src: url(../../../../assets/fonts/Chewy-Regular.ttf);
+}
+
+@font-face {
+    font-family: Modak;
+    src: url(../../../../assets/fonts/Modak-Regular.ttf);
+}

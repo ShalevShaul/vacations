@@ -1,0 +1,118 @@
+.EditVacation {
+    max-width: 600px;
+    margin: 6% auto 3% auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    background: unset;
+    backdrop-filter: blur(30px);
+    scroll-behavior: smooth;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.EditVacation h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+.EditVacation form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
+
+.EditVacation p {
+    margin-left: 3px;
+}
+
+.EditVacation input,
+.EditVacation textarea {
+    width: 95%;
+    padding: 10px;
+    margin-top: 5px;
+    background: unset;
+    border: unset;
+    border-bottom: 2px solid #7170707e;
+    font-size: 16px;
+    transition: 0.3s ease;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.EditVacation input:focus,
+.EditVacation textarea:focus {
+    outline: none;
+    border-color: #ae8c1c;
+}
+
+.EditVacation textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.EditVacation button {
+    background-color: #a88630;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.EditVacation button:hover {
+    background-color: #796023;
+}
+
+.EditVacation .inputError {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
+
+.EditVacation input:invalid,
+.EditVacation textarea:invalid {
+    border-color: #dc3545;
+}
+
+.EditVacation input[type="number"]::-webkit-outer-spin-button,
+.EditVacation input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.EditVacation .serverError {
+    text-align: center;
+    background-color: rgba(255, 0, 0, 0.6);
+    transition: background-color 1s ease;
+}
+
+@media (max-width: 600px) {
+    .EditVacation {
+        margin: 25% 20px 40px 20px;
+        padding: 15px;
+    }
+
+    .EditVacation input,
+    .EditVacation textarea {
+        font-size: 14px;
+    }
+
+    .EditVacation button {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 1200px) {
+    .EditVacation {
+        margin: 15% auto 40px auto;
+        padding: 15px;
+    }
+}

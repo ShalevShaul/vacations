@@ -1,0 +1,121 @@
+.Reports {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    margin: 6% auto;
+    border-radius: 40px;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    cursor: default;
+}
+
+.Reports .reports-container {
+    padding: 3rem;
+}
+
+.Reports .responsiveContainer {
+    width: 100%;
+    height: 50vh;
+}
+
+.Reports h2 {
+    display: inline-block;
+    margin-top: 30px;
+}
+
+.Reports .reports-title {
+    font-size: 1.875rem;
+    font-weight: 600;
+    color: #1f2937;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.Reports .chart-container {
+    width: 100%;
+    height: 400px;
+    min-height: 400px;
+    position: relative;
+}
+
+.Reports .loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.125rem;
+    color: #6b7280;
+}
+
+.Reports .downloadBtn {
+    display: flex;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    padding: 6px;
+    transition: 0.3s ease;
+    position: absolute;
+    right: 3%;
+    top: 3%;
+    color: rgba(86, 62, 24, 0.908);
+}
+
+.Reports .downloadBtn:hover {
+    background-color: rgba(203, 203, 203, 0.192);
+}
+
+.Reports .hoverText {
+    position: absolute;
+    bottom: -45px;
+    left: 50%;
+    background-color: #aaa;
+    color: rgb(23, 23, 23);
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 16px;
+    opacity: 0;
+    animation: fadeInDown 0.3s forwards;
+    white-space: nowrap;
+    font-family: 'Gill Sans', 'Trebuchet MS', sans-serif;
+}
+
+/* Error Message */
+.Reports .errorVacations {
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    width: 30%;
+    margin: auto;
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    font-weight: bold;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+}
+
+.Reports .errorVacations img {
+    width: 60%;
+    margin: 15px;
+}
+
+.Reports .errorVacations span {
+    font-size: 20px;
+}
+
+/* Media Queries */
+@media (max-width: 1000px) {
+    .Reports {
+        margin: 25% auto 20%;
+    }
+
+    .Reports .reports-container {
+        margin: 30px 0 0;
+        padding: 0 0 15%;
+    }
+}
+
+@media (max-width: 600px) {
+    .Reports .downloadBtn {
+        padding: 2px;
+        top: unset;
+        right: 0;
+        bottom: 0;
+        transform: translate(-50%, -50%);
+    }
+}

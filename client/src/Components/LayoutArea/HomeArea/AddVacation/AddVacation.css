@@ -1,0 +1,122 @@
+.AddVacation {
+    max-width: 600px;
+    margin: 6% auto 3% auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    background: unset;
+    backdrop-filter: blur(10px);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.AddVacation h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+.AddVacation form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.AddVacation form p {
+    margin: 0;
+    text-align: left;
+}
+
+.AddVacation form p .inputName {
+    margin-left: 1%;
+}
+
+.AddVacation input,
+.AddVacation textarea {
+    width: 95%;
+    padding: 10px;
+    margin-top: 5px;
+    background: unset;
+    border: unset;
+    border-bottom: 2px solid #7170707e;
+    font-size: 16px;
+    transition: 0.3s ease;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.AddVacation input:focus,
+.AddVacation textarea:focus {
+    outline: none;
+    border-color: #ae8c1c;
+}
+
+.AddVacation textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.AddVacation button {
+    background-color: #a88630;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.AddVacation button:hover {
+    background-color: #796023;
+}
+
+.AddVacation .inputError {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
+
+.AddVacation input:invalid,
+.AddVacation textarea:invalid {
+    border-color: #dc3545;
+}
+
+.AddVacation input[type="number"]::-webkit-outer-spin-button,
+.AddVacation input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.AddVacation .serverError {
+    text-align: center;
+    background-color: rgba(255, 0, 0, 0.6);
+    transition: background-color 1s ease;
+}
+
+@media (max-width: 600px) {
+    .AddVacation {
+        margin: 25% 20px 40px 20px;
+        padding: 15px;
+    }
+
+    .AddVacation input,
+    .AddVacation textarea {
+        font-size: 14px;
+    }
+
+    .AddVacation button {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 1200px) {
+    .AddVacation {
+        margin: 15% auto 40px auto;
+        padding: 15px;
+    }
+}
