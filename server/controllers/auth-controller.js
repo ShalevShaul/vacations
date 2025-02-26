@@ -17,7 +17,7 @@ router.post('/login', async (request, response) => {
         const loggedInUser = await authLogic.loginAsync(credentials);
         if (!loggedInUser) return response.status(401).send({ message: 'Incorrect email or password' });
 
-        response.send(loggedInUser);
+        response.status(201).send(loggedInUser);
     } catch (error) {
         console.log(error);
         response.status(500).send({ message: 'Internal server error' });
@@ -36,7 +36,7 @@ router.post('/register', async (request, response) => {
 
         await authLogic.registerAsync(details);
 
-        const credentials = new LoginDetails({email: details.email, password: request.body.password})
+        const credentials = new LoginDetails({ email: details.email, password: request.body.password })
         const loggedInUser = await authLogic.loginAsync(credentials);
 
         response.status(201).send(loggedInUser);

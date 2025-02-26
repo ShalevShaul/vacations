@@ -66,7 +66,7 @@ export default function LoginView({ flip }: LoginViewProps) {
                                 color: "green", // label focus color
                             },
                             "& input:-webkit-autofill": {
-                                transition: "background-color 5000s ease-in-out 0s",
+                                transition: "background-color 5000s",
                             },
                         }} {...register('email', { required: true })} />
                     {errors.email?.type === 'required' && <span className='inputError'>Email is required</span>}
@@ -89,7 +89,7 @@ export default function LoginView({ flip }: LoginViewProps) {
                         }} {...register('password', { required: true, minLength: 4 })} />
                     {errors.password?.type === 'required' && <span className='inputError'>Password is required</span>}
                     {errors.password?.type === 'minLength' && <span className='inputError'>Password is too short</span>}
-                    
+
                     <div>
                         <Button className='submitBtn' variant='contained' type='submit'>Login</Button>
                     </div>

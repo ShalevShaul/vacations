@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Create new axios instance
-const jwtAxios = axios.create();
+const jwtAxios = axios.create({baseURL:''});
 
 // Add interceptor to automatically inject JWT token
 jwtAxios.interceptors.request.use(request => {

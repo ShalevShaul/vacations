@@ -217,7 +217,6 @@ export default function SingleVacation(props: VacationFields) {
                     <Button
                         onClick={() => deleteVacation(vacation.vacation_id)}
                         color="error"
-                        autoFocus
                         sx={{
                             position: 'absolute',
                             left: '3%',

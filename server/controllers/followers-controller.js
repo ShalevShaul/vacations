@@ -1,6 +1,3 @@
-
-
-
 const express = require('express');
 const verifyLoggedIn = require('../middleware/verify-logged-in');
 const verifyAdmin = require('../middleware/verify-admin');

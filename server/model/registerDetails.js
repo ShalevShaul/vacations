@@ -12,8 +12,8 @@ class RegisterDetails {
     static #validationSchema = Joi.object({
         email: Joi.string().email().required(),
         password: Joi.string().required().min(4).max(50),
-        first_name: Joi.string().optional(),
-        last_name: Joi.string().optional()
+        first_name: Joi.string().required(),
+        last_name: Joi.string().required(),
     });
 
     validate() {

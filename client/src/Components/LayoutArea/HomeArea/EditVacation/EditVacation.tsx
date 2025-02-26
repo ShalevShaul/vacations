@@ -35,16 +35,6 @@ export default function EditVacation(props: VacationFields) {
     
     if(!state) return <Loader />
 
-    const {
-        destination,
-        description,
-        start_time,
-        end_time,
-        price,
-        image
-    } = state;
-
-
     // Edit vaction function (admin-only)
     async function editVacation(editedVacation: Vacation) {
         setIsLoading(true);
@@ -111,7 +101,8 @@ export default function EditVacation(props: VacationFields) {
                 </p>
                 <p>
                     Image: <br />
-                    <input type="file" {...register('image')} /> <br />
+                    <input type="file" accept="image/*" {...register('image')} /> <br />
+                    <span className="inputError">Upload a new image to replace the current one, or leave empty to keep it</span>
                 </p>
                 <p className='serverError'>
                     {message?.toString()}

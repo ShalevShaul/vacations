@@ -26,7 +26,12 @@ router.delete('/deleteVacation/:vacation_id', [verifyLoggedIn, verifyAdmin], asy
         const imageName = await vacationsLogic.getImageByVacationId(request.params.vacation_id);
         if (imageName) {
             const imagePath = path.join(__dirname, '../images', imageName[0].image);    // Get path by image name
-            await fs.unlink(imagePath);     // Delete image by imaegPath
+            try {
+                await fs.unlink(imagePath);     // Delete image by imagePath
+                console.log(`Image deleted successfully: ${imageName[0].image}`);
+            } catch (unlinkError) {
+                console.log(`Failed to delete image: ${unlinkError.message}`);
+            }
         }
         await vacationsLogic.deleteVacationAsync(request.params.vacation_id);
         console.log('Vacation and image has been deleted.');
@@ -54,10 +59,26 @@ router.put('/editVacation/:vacation_id', [verifyLoggedIn, verifyAdmin], async (r
     try {
         const image = request.files?.image;
         if (image) {
-            const imageName = image?.name;
+            // Get the old image name
+            const oldImageData = await vacationsLogic.getImageByVacationId(vacation_id);
+            if (oldImageData && oldImageData.length > 0) {
+                const oldImageName = oldImageData[0].image;
+                // Delete old image if it exists
+                const oldImagePath = path.join(__dirname, '../images', oldImageName);
+                try {
+                    await fs.unlink(oldImagePath);
+                    console.log(`Old image deleted: ${oldImageName}`);
+                } catch (unlinkError) {
+                    console.log(`Failed to delete old image: ${unlinkError.message}`);
+                    // Continue with the operation even if deletion fails
+                }
+            }
+
+            // new image upload
+            const imageName = image.name;
             const absolutePath = path.join(__dirname, '..', 'images', imageName);
             await image.mv(absolutePath);
-            console.log(`${imageName} --->>> ${absolutePath}`);
+            console.log(`New image uploaded: ${imageName} --->>> ${absolutePath}`);
             await vacationsLogic.editVacationWithImageAsync(vacation_id, destination, description, start_time, end_time, price, imageName);
         }
         else {
@@ -91,7 +112,7 @@ router.post('/insertVacation', [verifyLoggedIn, verifyAdmin], async (request, re
         const imageName = image.name;
         const absolutePath = path.join(__dirname, '..', 'images', imageName);
         await image.mv(absolutePath);
-        console.log(`${imageName} --->>> ${absolutePath}`);
+        console.log(`New image uploaded: ${imageName} --->>> ${absolutePath}`);
 
         await vacationsLogic.insertVacationAsync(destination, description, start_time, end_time, price, imageName);
         response.status(201).send({ message: 'Vacation added successfully!' });

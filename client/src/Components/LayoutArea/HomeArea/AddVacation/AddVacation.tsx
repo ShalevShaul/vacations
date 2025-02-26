@@ -29,7 +29,8 @@ export default function AddVacation() {
             navigate('/home');
         } catch (error: any) {
             console.log(error);
-            setMessage(`${Object.values(error.response.data)[0]}`)
+            setMessage(Object.values(error.response.data)[0] == 'R' ? 'Error, please try again later' :
+                `${Object.values(error.response.data)[0]}`);
             setTimeout(() => {
                 setMessage(null)
             }, 5000);

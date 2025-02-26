@@ -1,7 +1,6 @@
 const dal = require('../data-access-layer/dal');
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
-const uuid = require('uuid');
 
 async function loginAsync(credentials) {
     credentials.password = hash(credentials.password);
@@ -29,8 +28,6 @@ async function checkEmail(email) {
 
 async function registerAsync(user) {
     user.password = hash(user.password);
-
-    user.uuid = uuid.v4;
 
     const sql = `INSERT INTO users VALUES (DEFAULT, '${user.first_name}', '${user.last_name}', '${user.email}', '${user.password}', 'user')`;
     const info = await dal.executeQueryAsync(sql);
