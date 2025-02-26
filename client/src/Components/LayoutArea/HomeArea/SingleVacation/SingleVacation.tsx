@@ -83,11 +83,7 @@ export default function SingleVacation(props: VacationFields) {
     async function deleteVacation(vacation_id: number) {
         setIsLoading(true);
         try {
-            await jwtAxios.delete(`http://localhost:4000/vacations/deleteVacation/${vacation_id}`, {
-                data: {
-                    role: 'admin'
-                }
-            });
+            await jwtAxios.delete(`http://localhost:4000/vacations/deleteVacation/${vacation_id}`);
             props.refresh();
             handleCloseDialog();
         } catch (error) {

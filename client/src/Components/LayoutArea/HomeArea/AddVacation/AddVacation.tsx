@@ -23,7 +23,6 @@ export default function AddVacation() {
         myData.append('end_time', newVacation.end_time);
         myData.append('price', newVacation.price.toString());
         myData.append('image', newVacation.image[0]);
-        myData.append('role', 'admin');    // role:'admin' for server verifyAdmin
         try {
             await jwtAxios.post<Vacation>('http://localhost:4000/vacations/insertVacation', myData);
             navigate('/home');

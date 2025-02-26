@@ -34,7 +34,7 @@ async function registerAsync(user) {
 
     delete user.password;
 
-    user.token = jwt.sign({ user: user[0] }, 'HineHahagbahaVeeizeShaarWohoWohoMaAsaHaYeled', { expiresIn: "10m" });
+    user.token = jwt.sign({ user }, 'HineHahagbahaVeeizeShaarWohoWohoMaAsaHaYeled', { expiresIn: "10m" });
 
     return user;
 }

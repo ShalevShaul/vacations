@@ -20,7 +20,6 @@ export default function EditVacation(props: VacationFields) {
     const [message, setMessage] = useState<'Server error, please try again later' | null>(null)
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const { register, handleSubmit, formState: { errors }, reset } = useForm<Vacation>();
-    // const user = JSON.parse(localStorage.getItem('loginData') || '{}');
     const { vacation_id } = useParams();
     const { state } = useLocation();
     const navigate = useNavigate();
@@ -45,7 +44,6 @@ export default function EditVacation(props: VacationFields) {
         myData.append('end_time', editedVacation.end_time);
         myData.append('price', editedVacation.price.toString());
         myData.append('image', editedVacation.image[0]);
-        myData.append('role', 'admin');    // role:'admin' for server verifyAdmin
         try {
             await jwtAxios.put<Vacation>(`http://localhost:4000/vacations/editVacation/${vacation_id}`, myData);
             navigate('/home');
