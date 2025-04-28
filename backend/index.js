@@ -1,10 +1,11 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const authController = require('./controllers/auth-controller');
 const vacationsController = require('./controllers/vacations-controller');
 const followersController = require('./controllers/followers-controller');
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 const app = express();
 app.use(cors());
@@ -24,7 +25,7 @@ app.listen(PORT, () => {
     console.log(`Listening to ${PORT}!`);
 }).on('error', (err) => {
     console.log(err);
-    if (err.code = 'EADDRINUSE')
+    if (err.code === 'EADDRINUSE')
         console.log('ERROR: Adress in use');
     else
         console.log('ERROR: Unknown error');
