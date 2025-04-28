@@ -45,7 +45,7 @@ export default function EditVacation(props: VacationFields) {
         myData.append('price', editedVacation.price.toString());
         myData.append('image', editedVacation.image[0]);
         try {
-            await jwtAxios.put<Vacation>(`http://localhost:4000/vacations/editVacation/${vacation_id}`, myData);
+            await jwtAxios.put<Vacation>(`/vacations/editVacation/${vacation_id}`, myData);
             navigate('/home');
         } catch (error: any) {
             console.log(error);

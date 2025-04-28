@@ -24,7 +24,7 @@ export default function AddVacation() {
         myData.append('price', newVacation.price.toString());
         myData.append('image', newVacation.image[0]);
         try {
-            await jwtAxios.post<Vacation>('http://localhost:4000/vacations/insertVacation', myData);
+            await jwtAxios.post<Vacation>('/vacations/insertVacation', myData);
             navigate('/home');
         } catch (error: any) {
             console.log(error);

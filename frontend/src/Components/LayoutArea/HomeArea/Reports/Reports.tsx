@@ -30,7 +30,7 @@ export default function Reports() {
     async function getReportsAsync() {
         setIsLoading(true);
         try {
-            const response = await jwtAxios.post('http://localhost:4000/followers/reports');
+            const response = await jwtAxios.post('/followers/reports');
             console.log(response.data);
             setReports(response.data);
         } catch (error) {

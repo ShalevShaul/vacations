@@ -34,7 +34,7 @@ function Home() {
     async function getAllVacationsAsync() {
         setIsLoading(true);
         try {
-            const response = await jwtAxios.get<VacationFields[]>('http://localhost:4000/vacations');
+            const response = await jwtAxios.get<VacationFields[]>('/vacations');
             const sortedVacations = response.data.sort((a, b) =>
                 new Date(a.start_time).getTime() - new Date(b.start_time).getTime()
             );
@@ -61,7 +61,7 @@ function Home() {
         setIsLoading(true);
         const user_id = user.user_id;
         try {
-            const response = await jwtAxios.get<Following[]>(`http://localhost:4000/followers/following/${user_id}`);
+            const response = await jwtAxios.get<Following[]>(`/followers/following/${user_id}`);
             const vacationIds = response.data.map(r => r.vacation_id);
             const followingVacations = vacations.filter(v => vacationIds.includes(v.vacation_id));
             setNewVacations(followingVacations);

@@ -14,6 +14,7 @@ import {
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import Loader from '../../../Loader/Loader';
+import { IMAGES_URL } from '../../../../Services/JwtAxios';
 
 interface VacationFields {
     vacation_id: number;
@@ -51,7 +52,7 @@ export default function SingleVacation(props: VacationFields) {
     async function getAllFollowersAsync() {
         setIsLoading(true);
         try {
-            const response = await jwtAxios.get('http://localhost:4000/followers/followers');
+            const response = await jwtAxios.get('/followers/followers');
             setFollowers(response.data);
         } catch (error) {
             console.log(error);
@@ -69,9 +70,9 @@ export default function SingleVacation(props: VacationFields) {
     async function handleCheckboxChange(event: any, vacation_id: number) {
         try {
             if (event.target.checked) {    // Add following if checked
-                await jwtAxios.post(`http://localhost:4000/followers/insertFollower/${vacation.vacation_id}/${user.user_id}`);
+                await jwtAxios.post(`/followers/insertFollower/${vacation.vacation_id}/${user.user_id}`);
             } else {        // Delete following if unChecked
-                await jwtAxios.delete(`http://localhost:4000/followers/deleteFollower/${vacation.vacation_id}/${user.user_id}`);
+                await jwtAxios.delete(`/followers/deleteFollower/${vacation.vacation_id}/${user.user_id}`);
             }
             await getAllFollowersAsync();
         } catch (error) {
@@ -83,7 +84,7 @@ export default function SingleVacation(props: VacationFields) {
     async function deleteVacation(vacation_id: number) {
         setIsLoading(true);
         try {
-            await jwtAxios.delete(`http://localhost:4000/vacations/deleteVacation/${vacation_id}`);
+            await jwtAxios.delete(`/vacations/deleteVacation/${vacation_id}`);
             props.refresh();
             handleCloseDialog();
         } catch (error) {
@@ -162,7 +163,7 @@ export default function SingleVacation(props: VacationFields) {
                         </Button>
                     </div>
                 )}
-                <img src={`http://localhost:4000/images/${vacation.image}`} alt={vacation.destination} />
+                <img src={`${IMAGES_URL}/${vacation.image}`} alt={vacation.destination} />
             </header>
             <span className='date'>{vacation.formatStart()} - {vacation.formatEnd()}</span>
             <p className='description'>{vacation.description}</p>

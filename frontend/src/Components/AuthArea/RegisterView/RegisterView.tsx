@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Loader from '../../Loader/Loader';
 import { Button, TextField } from '@mui/material';
+import jwtAxios from '../../../Services/JwtAxios';
 
 interface RegisterationProps {
     flip: () => void;
@@ -27,7 +28,7 @@ export default function RegisterView({ flip }: RegisterationProps) {
     async function registerUser(user: User) {
         setIsLoading(true);
         try {
-            const response = await axios.post('http://localhost:4000/auth/register', user);
+            const response = await jwtAxios.post('/auth/register', user);
 
             localStorage.setItem('loginData', JSON.stringify(response.data));
             localStorage.setItem('loginTime', Date.now().toString());

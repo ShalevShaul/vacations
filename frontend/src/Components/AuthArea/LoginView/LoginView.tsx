@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Loader from '../../Loader/Loader';
+import jwtAxios from '../../../Services/JwtAxios';
 
 interface Credentials {
     email: string;
@@ -25,7 +26,7 @@ export default function LoginView({ flip }: LoginViewProps) {
     async function login(credentials: Credentials) {
         setIsLoading(true);
         try {
-            const response = await axios.post('http://localhost:4000/auth/login', credentials);
+            const response = await jwtAxios.post('/auth/login', credentials);
 
             localStorage.setItem('loginData', JSON.stringify(response.data));
             localStorage.setItem('loginTime', Date.now().toString());
