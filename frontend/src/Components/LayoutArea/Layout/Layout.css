@@ -29,7 +29,7 @@ main {
     grid-row: 3;
     position: static;
     z-index: 1;
-    background-image: url(../../../assets/images/wallpaperflare.com_wallpaper.jpg);
+    background-image: url(../../../assets/images/wallpaperflare.com_wallpaper.webp);
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -73,7 +73,7 @@ main>.Home {
     }
 
     main {
-        background-image: url(../../../assets/images/wallpaperflare.com_wallpaper.jpg);
+        background-image: url(../../../assets/images/wallpaperflare.com_wallpaper.webp);
         background-size: auto 100vh;
         background-position: 75%;
         background-repeat: no-repeat;

@@ -44,18 +44,18 @@
 }
 
 @keyframes authFirstSlide {
-    0%, 15%, 100% { background-image: url(../../../assets/images/first4K.jpg); }
-    20%, 35% { background-image: url(../../../assets/images/third4K.jpeg); }
-    40%, 55% { background-image: url(../../../assets/images/second4K.jpg); }
-    60%, 75% { background-image: url(../../../assets/images/fifth4K.jpg); }
-    80%, 95% { background-image: url(../../../assets/images/FIVE.jpg); }
+    0%, 15%, 100% { background-image: url(../../../assets/images/first4K.webp); }
+    20%, 35% { background-image: url(../../../assets/images/third4K.webp); }
+    40%, 55% { background-image: url(../../../assets/images/second4K.webp); }
+    60%, 75% { background-image: url(../../../assets/images/fifth4K.webp); }
+    80%, 95% { background-image: url(../../../assets/images/FIVE.webp); }
 }
 
 @keyframes authSecondSlide {
-    0%, 15%, 100% { opacity: 0; background-image: url(../../../assets/images/third4K.jpeg); }
-    20%, 95% { opacity: 1; background-image: url(../../../assets/images/second4K.jpg); }
-    40%, 75% { opacity: 1; background-image: url(../../../assets/images/fifth4K.jpg); }
-    80% { opacity: 1; background-image: url(../../../assets/images/first4K.jpg); }
+    0%, 15%, 100% { opacity: 0; background-image: url(../../../assets/images/third4K.webp); }
+    20%, 95% { opacity: 1; background-image: url(../../../assets/images/second4K.webp); }
+    40%, 75% { opacity: 1; background-image: url(../../../assets/images/fifth4K.webp); }
+    80% { opacity: 1; background-image: url(../../../assets/images/first4K.webp); }
 }
 
 .AuthContainer .authPage {
