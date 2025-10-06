@@ -7,15 +7,6 @@ const vacationsController = require('./controllers/vacations-controller');
 const followersController = require('./controllers/followers-controller');
 const PORT = process.env.PORT || 4000;
 
-console.log('================================');
-console.log('🔍 Environment Variables Check:');
-console.log('================================');
-console.log('SALT_SECRET:', process.env.SALT_SECRET ? '✅ EXISTS' : '❌ MISSING');
-console.log('JWT_SECRET:', process.env.JWT_SECRET ? '✅ EXISTS' : '❌ MISSING');
-console.log('DB_HOST:', process.env.DB_HOST ? '✅ EXISTS' : '❌ MISSING');
-console.log('DB_USER:', process.env.DB_USER ? '✅ EXISTS' : '❌ MISSING');
-console.log('================================');
-
 const app = express();
 app.use(cors({
     origin: process.env.FRONTEND_URL || '*',
