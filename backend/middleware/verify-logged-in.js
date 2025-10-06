@@ -8,7 +8,7 @@ function verifyLoggedIn(request, response, next) {
     if (!token)
         return response.status(401).send({ message: 'You are not logged-in' });
 
-    jwt.verify(token, 'HineHahagbahaVeeizeShaarWohoWohoMaAsaHaYeled', (err, decodedToken) => {
+    jwt.verify(token, process.env.JWT_SECRET, (err, decodedToken) => {
         if (err) {
             if (err.message === 'jwt expired')
                 return response.status(403).send({ message: 'Your login session has expired' });
