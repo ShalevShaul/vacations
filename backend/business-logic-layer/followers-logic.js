@@ -1,16 +1,14 @@
 const dal = require('../data-access-layer/dal');
 
 function getAllFollowersAsync() {
-    return dal.executeQueryAsync(`
-        SELECT * FROM followers
-    `);
+    return dal.executeQueryAsync('SELECT * FROM followers');
 }
 
 function getFollowingVacationsByUserId(user_id) {
-    return dal.executeQueryAsync(`
-        SELECT * FROM followers
-        WHERE user_id = ${user_id}    
-    `);
+    return dal.executeQueryAsync(
+        'SELECT * FROM followers WHERE user_id = ?',
+        [user_id]
+    );
 }
 
 function getReportsAsync() {
@@ -24,18 +22,17 @@ function getReportsAsync() {
 }
 
 function insertFollowerAsync(vacation_id, user_id) {
-    return dal.executeQueryAsync(`
-        INSERT INTO followers VALUES
-        (${user_id}, ${vacation_id})
-    `);
+    return dal.executeQueryAsync(
+        'INSERT INTO followers (user_id, vacation_id) VALUES (?, ?)',
+        [user_id, vacation_id]
+    );
 }
 
 function deleteFollowerAsync(vacation_id, user_id) {
-    return dal.executeQueryAsync(`
-        DELETE FROM followers WHERE
-        vacation_id = ${vacation_id} AND
-        user_id = ${user_id}
-    `);
+    return dal.executeQueryAsync(
+        'DELETE FROM followers WHERE vacation_id = ? AND user_id = ?',
+        [vacation_id, user_id]
+    );
 }
 
 module.exports = {

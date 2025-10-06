@@ -1,4 +1,4 @@
-const db = require('mysql');
+const db = require('mysql2');
 
 const connection = db.createConnection({
     host: process.env.DB_HOST,
@@ -11,15 +11,13 @@ const connection = db.createConnection({
     }
 });
 
-function executeQueryAsync(sqlCmd) {
+function executeQueryAsync(sqlCmd, params = []) {
     return new Promise((resolve, reject) => {
-        connection.query(sqlCmd, (err, result) => {
+        connection.query(sqlCmd, params, (err, result) => {
             if (err) {
-                // console.log(err);
                 reject(err);
             }
             else {
-                // console.log(result);
                 resolve(result);
             }
         });
