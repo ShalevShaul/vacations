@@ -1,4 +1,5 @@
 import "./Layout.css";
+import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Menu from "../Menu/Menu";
 import Home from "../HomeArea/Home/Home";
@@ -6,7 +7,7 @@ import EditVacation from "../HomeArea/EditVacation/EditVacation";
 import AddVacation from "../HomeArea/AddVacation/AddVacation";
 import Reports from "../HomeArea/Reports/Reports";
 
-function Layout(): JSX.Element {
+function Layout(): React.ReactElement {
     const user = JSON.parse(localStorage.getItem('loginData') || '{}');
     return (
         <div className="Layout">

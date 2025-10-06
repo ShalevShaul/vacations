@@ -4,8 +4,11 @@
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext"
+      "esnext",
+      "ES2015"
     ],
+    "types": ["react", "react-dom", "node"],
+    "typeRoots": [ "./node_modules/@types", "../node_modules/@types", "../../node_modules/@types" ],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
